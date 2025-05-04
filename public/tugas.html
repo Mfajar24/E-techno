@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas Siswa</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="js/tugas.js"></script>
+  <style>
+            /* Tambahan styling khusus untuk halaman tugas */
+            body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            box-sizing: border-box;
+            margin: 0; /* Reset margin body */
+            padding: 20px; /* Add padding to body */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #homeBtn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #homeBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #taskContainer {
+            width: 100%;
+            max-width: 960px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tugas {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tugas h3 {
+            color: #0056b3;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .tugas p {
+            margin-bottom: 10px;
+        }
+
+        .tugas a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .tugas a:hover {
+            text-decoration: underline;
+        }
+
+        .jawaban-form {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .jawaban-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .jawaban-form textarea,
+        .jawaban-form input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .jawaban-form button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .jawaban-form button:hover {
+            background-color: #218838;
+        }
+
+        /* Styling untuk komentar */
+        #comments-container {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        #comments-container h4 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        .comment small {
+            color: #888;
+        }
+        
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            #taskContainer {
+                width: 95%;
+            }
+            .tugas {
+                padding: 15px;
+            }
+            .jawaban-form button {
+                width: 100%; /* Make button full width on smaller screens */
+            }
+        }
+  </style>
+</head>
+<body>
+  <h1>Daftar Tugas</h1>
+  <button id="homeBtn">Kembali ke Beranda</button>
+  <div id="taskContainer"></div>
+</body>
+</html>

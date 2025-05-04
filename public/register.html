@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Form Registrasi</h2>
+    <form id="registerForm">
+        <input type="text" name="name" placeholder="Nama" required />
+        <input type="text" name="class" placeholder="Kelas" required />
+        <input type="text" name="studentId" placeholder="Nomor Induk" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Sandi" required />
+        <select name="role" required>
+            <option value="">Pilih peran</option>
+            <option value="student">Siswa</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Daftar</button>
+        <a href="login.html">sudah registrasi ? login disini!</a>
+    </form>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            const res = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            alert(result.message || result.error);
+        });
+    </script>
+</body>
+</html>

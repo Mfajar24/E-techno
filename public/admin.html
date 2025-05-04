@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Halaman Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="js/admin.js"></script>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f7f6;
+          color: #333;
+        }
+      
+        h2, h3 {
+          text-align: center;
+          color: #0056b3;
+          margin-bottom: 20px;
+        }
+      
+        button {
+          padding: 10px 15px;
+          margin: 5px 0;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+      
+        #logoutBtn {
+          background-color: #dc3545;
+          color: white;
+        }
+      
+        #logoutBtn:hover {
+          background-color: #c82333;
+        }
+      
+        #homeBtn {
+          background-color: #007bff;
+          color: white;
+        }
+      
+        #homeBtn:hover {
+          background-color: #0056b3;
+        }
+      
+        hr {
+          border: none;
+          height: 2px;
+          background-color: #ddd;
+          margin: 20px 0;
+        }
+      
+        /* Table */
+        .table-container {
+            width: 100%;
+          overflow-x: auto;
+          margin-bottom: 20px;
+        }
+      
+        #userTable {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        overflow: hidden;
+        }      
+        #userTable th, #userTable td {
+          padding: 12px 15px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+      
+        #userTable thead tr {
+          background-color: #007bff;
+          color: white;
+        }
+      
+        #userTable tbody tr:hover {
+          background-color: #f9f9f9;
+        }
+      
+        /* Form */
+        form {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+          margin-bottom: 20px;
+        }
+      
+        form label {
+          font-weight: bold;
+          margin-bottom: 5px;
+          display: block;
+        }
+      
+        form input,
+        form select,
+        form textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 1em;
+        }
+      
+        form button {
+          background-color: #28a745;
+          color: white;
+          font-weight: bold;
+        }
+      
+        form button:hover {
+          background-color: #218838;
+        }
+      
+        #cancelEditBtn {
+          background-color: #6c757d;
+          margin-left: 10px;
+        }
+      
+        #cancelEditBtn:hover {
+          background-color: #5a6268;
+        }
+
+        .table-actions button {
+  display: inline-block;
+  margin: 2px 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+      
+/* Responsive table on small screen */
+@media (max-width: 768px) {
+  #userTable,
+  #userTable thead,
+  #userTable tbody,
+  #userTable th,
+  #userTable td,
+  #userTable tr {
+    display: block;
+  }
+
+  #userTable thead {
+    display: none;
+  }
+
+  #userTable tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  #userTable td {
+    padding: 8px 10px;
+    text-align: right;
+    position: relative;
+    font-size: 14px;
+  }
+
+  #userTable td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 50%;
+    font-weight: bold;
+    text-align: left;
+  }
+}      </style>
+    </head>
+<body>
+    <h2>Dashboard Admin</h2>
+    <button id="homeBtn">Kembali ke Beranda</button>
+
+    <hr>
+
+    <h3>Daftar Pengguna</h3>
+    <div class="table-container">
+        <table id="userTable" border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Nomor Induk</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td data-label="ID"></td>
+                  <td data-label="Nama"></td>
+                  <td data-label="Kelas"></td>
+                  <td data-label="Nomor Induk"></td>
+                  <td data-label="Email"></td>
+                  <td data-label="Role"></td>
+                  <td data-label="Aksi">
+                    <button>Edit</button>
+                    <button>Hapus</button>
+                  </td>
+                </tr>
+              </tbody>
+                      </table>
+    
+    </div>
+
+    <hr>
+
+    <h3>Tambah Pengguna</h3>
+    <form id="addUserForm">
+        <input type="text" name="name" placeholder="Nama" required />
+        <input type="text" name="class" placeholder="Kelas" required />
+        <input type="text" name="studentId" placeholder="Nomor Induk" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Sandi" required />
+        <select name="role" required>
+            <option value="">Pilih peran</option>
+            <option value="student">Siswa</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Tambah Pengguna</button>
+    </form>
+
+    <hr>
+
+    <h3>Edit Pengguna</h3>
+    <form id="editUserForm" style="display: none;">
+        <input type="hidden" name="id" />
+        <input type="text" name="name" placeholder="Nama" required />
+        <input type="text" name="class" placeholder="Kelas" required />
+        <input type="text" name="studentId" placeholder="Nomor Induk" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="role" required>
+            <option value="student">Siswa</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Simpan Perubahan</button>
+        <button type="button" id="cancelEditBtn">Batal</button>
+    </form>
+</body>
+</html>

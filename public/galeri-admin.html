@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kelola Galeri Harian</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="js/galeri-admin.js"></script>
+  <style>
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    #logoutBtn, #homeBtn {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px 5px 20px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    #logoutBtn:hover, #homeBtn:hover {
+      background-color: #2980b9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f1f1;
+      color: #555;
+    }
+
+    tr:hover {
+      background-color: #fafafa;
+    }
+
+    img, video {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .aksi-btn {
+      display: flex;
+      gap: 8px;
+    }
+
+    .aksi-btn button {
+      padding: 6px 10px;
+      font-size: 0.9rem;
+      border: 1px solid #ccc;
+      background-color: #ecf0f1;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .aksi-btn button:hover {
+      background-color: #bdc3c7;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      td {
+        justify-content: space-between;
+        padding: 10px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+      }
+    }    img, video { max-width: 150px; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Kelola Galeri Harian</h1>
+  <button id="homeBtn">Kembali ke Beranda</button>
+
+  <table id="galeriTable">
+    <thead>
+      <tr>
+        <th>Waktu</th>
+        <th>Konten</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</body>
+</html>

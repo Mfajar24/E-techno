@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Sandi" required />
+        <button type="submit">Masuk</button>
+        <a href="register.html">register di sini!</a>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+    
+            const res = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+    
+            const result = await res.json();
+            if (result.user) {
+                // Simpan data user di localStorage
+                localStorage.setItem('user', JSON.stringify(result.user));
+                alert(result.message);
+                window.location.href = 'index.html'; // Redirect ke beranda setelah login berhasil
+            } else {
+                alert(result.error);
+            }
+        });
+    </script>
+    </body>
+</html>

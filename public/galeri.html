@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galeri Harian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #74ebd5, #9face6);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4267B2;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #galeriForm {
+      background: white;
+      margin: 3rem auto;
+      padding: 1rem;
+      max-width: 90%;
+
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #galeriForm textarea {
+      padding: 10px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    #galeriForm input, #galeriForm button {
+      font-size: 1rem;
+    }
+    #feedContainer {
+      max-width: 90%;
+      margin: 1rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .post {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .post p {
+      margin: 0.5rem 0;
+    }
+    .post img, .post video {
+      max-width: 100%;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+    }
+    .actions {
+      margin-top: 0.5rem;
+    }
+    .actions button {
+      background: #eee;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 6px;
+    }
+    .comments {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .comment-form {
+      display: flex;
+      gap: 6px;
+      margin-top: 0.5rem;
+    }
+    .comment-form input {
+      flex: 1;
+      padding: 6px;
+    }
+    .comment-form button {
+      padding: 6px 10px;
+    }
+    .timestamp {
+      font-size: 0.8rem;
+      color: gray;
+    }
+    .comment-delete-btn {
+      background: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>Galeri Harian</div>
+    <div id="userProfile" style="font-size: 0.9rem; text-align: right;">
+      <!-- Akan diisi oleh JS -->
+    </div>
+    <button id="homeBtn" style="background: white; color: #4267B2; padding: 0.5rem 1rem; border: none; border-radius: 6px;">Beranda</button>
+  </header>
+  
+<form id="galeriForm">
+  <textarea id="text" rows="3" placeholder="Bagikan sesuatu..."></textarea>
+  <input type="file" id="file" accept="image/*,video/*"/>
+  <button type="submit">Kirim</button>
+</form>
+
+<!-- Feed akan dimuat oleh JS -->
+<div id="feedContainer">
+    
+    <div class="comments">
+      <div>
+        <b>Nama Siswa</b>: Ini komentar contoh
+        <button class="comment-delete-btn">🗑️</button>
+      </div>
+    </div>
+
+    <form class="comment-form">
+      <input type="text" placeholder="Tambah komentar...">
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div class="actions">
+      <button>Edit</button>
+      <button>Hapus</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/galeri.js"></script>
+</body>
+</html>

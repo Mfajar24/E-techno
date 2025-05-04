@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Halaman Siswa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .course .files a,
+        .course .files img,
+        .course .files video {
+            display: block;
+            margin-top: 8px;
+        }
+        .course .files img {
+            max-width: 150px;
+        }
+        .course .files video {
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Kursus Tersedia</h1>
+    <input type="text" id="searchInput" placeholder="Cari kursus..." style="padding: 8px; width: 100%; margin-bottom: 20px;">
+    <div id="courseList"></div>
+    <button id="homeBtn">Kembali ke Beranda</button>
+
+    <script src="js/siswa.js" defer></script>
+</body>
+</html>

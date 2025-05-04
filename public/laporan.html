@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Nilai Siswa</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="js/laporan.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    button, select {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3498db;
+      color: white;
+      border-color: #3498db;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f1f1;
+      color: #555;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      td {
+        padding: 8px 10px;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        color: #555;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Laporan Nilai Siswa</h1>
+
+  <div class="controls">
+    <button id="homeBtn">Kembali ke Beranda</button>
+    <label for="filterTugas">Filter Tugas:</label>
+    <select id="filterTugas">
+      <option value="">Semua Tugas</option>
+    </select>
+    <button id="exportCsv">Export ke CSV</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nama Siswa</th>
+        <th>ID Siswa</th>
+        <th>Judul Tugas</th>
+        <th>Nilai</th>
+        <th>Feedback</th>
+        <th>Status</th>
+        <th>Tanggal Jawaban</th>
+      </tr>
+    </thead>
+    <tbody id="laporanBody">
+      <!-- Baris laporan dimasukkan lewat JS -->
+    </tbody>
+  </table>
+</body>
+</html>

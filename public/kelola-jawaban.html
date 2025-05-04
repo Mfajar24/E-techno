@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelola Jawaban Siswa</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="js/kelola-jawaban.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    #homeBtn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    #homeBtn:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .aksi-btn {
+      display: flex;
+      gap: 10px;
+    }
+
+    .aksi-btn button {
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: white;
+    }
+
+    .btn-nilai {
+      background-color: #28a745;
+    }
+
+    .btn-nilai:hover {
+      background-color: #218838;
+    }
+
+    .btn-hapus {
+      background-color: #dc3545;
+    }
+
+    .btn-hapus:hover {
+      background-color: #c82333;
+    }
+
+    a.download-link {
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a.download-link:hover {
+      text-decoration: underline;
+    }
+    /* ====== Button Styles in Table ====== */
+.table-actions button {
+  display: inline-block;
+  margin: 2px 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-simpan {
+  background-color: #ffc107;
+}
+
+.btn-simpan:hover {
+  background-color: #e0a800;
+}
+
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 10px;
+        background-color: #fff;
+      }
+
+      td {
+        padding: 8px 10px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Kelola Jawaban Siswa</h1>
+  <button id="homeBtn">Kembali ke Beranda</button>
+
+  <table id="jawabanTable">
+    <thead>
+      <tr>
+        <th>Tugas</th>
+        <th>ID Siswa</th>
+        <th>Jawaban Teks</th>
+        <th>File</th>
+        <th>Waktu Kirim</th>
+        <th>Nilai</th>
+        <th>Feedback</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</body>
+</html>
